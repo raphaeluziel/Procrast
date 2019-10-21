@@ -18,11 +18,11 @@ export default class App extends React.Component {
     user: null,
     myProjects: null
   }
-  
+
   .mapStateKeys = () => {
     Object.keys(this.state).map( key => this.state[key])
   }
-  
+
   signInUser = () => {
     const provider = new firebase.auth.GoogleAuthProvider();
     auth.signInWithPopup(provider)
@@ -39,7 +39,7 @@ export default class App extends React.Component {
         console.log(error)
     })
   }
-  
+
   componentDidMount() {
     console.log("This works")
     this.getLoggedUsers()
@@ -61,7 +61,7 @@ export default class App extends React.Component {
       }
     })
   }
-  
+
   getLoggedUsers = () => {
     db.collection('users')
       .where('loggedIn', '==', true)
@@ -76,11 +76,11 @@ export default class App extends React.Component {
       })
       .catch (err => console.log(err))
   }
-  
+
   signOutUser = () => {
     auth.signOut()
   }
-  
+
   handleChange = (event) => {
     const value = event.target.value
     const name = event.target.name
@@ -90,7 +90,7 @@ export default class App extends React.Component {
     // const description = event.target.description
     this.setState({[name] : value})
   }
-  
+
   getProjectsFromFirebase = (uid) => {
     console.log('uid')
     console.log(uid)
@@ -103,13 +103,13 @@ export default class App extends React.Component {
         snapshot.forEach (project => {
           const data = project.data()
           myProjects.push(data)
-          
+
         })
           this.setState({myProjects:myProjects}, console.log(myProjects))
       })
       .catch( error => console.log(error))
-  }  
-  
+  }
+
   render() {
     return (
       <div className="App">
@@ -130,7 +130,7 @@ class WelcomePage extends React.Component {
   state = {
     myProjects: null
   }
-  
+
   handleChange = (event) => {
     const value = event.target.value
     const name = event.target.name
@@ -139,8 +139,8 @@ class WelcomePage extends React.Component {
     // const deadline = event.target.deadline
     // const description = event.target.description
     this.setState({[name] : value})
-  }  
-  
+  }
+
   saveProjectInFirebase = () => {
     db.collection('projects')
       .add({
@@ -157,7 +157,7 @@ class WelcomePage extends React.Component {
         axios.post('https://us-central1-upperline-app.cloudfunctions.net/sendProcrast', {
           email: this.props.user.email,
           displayName: this.props.user.displayName,
-          message: 
+          message:
           `
           Hello!
           `
@@ -165,8 +165,8 @@ class WelcomePage extends React.Component {
       })
       .catch( err => console.log(err))
   }
-  
-  
+
+
   // getProjectsFromFirebase = (uid) => {
   //   db.collection('projects')
   //     .where('id', '==', uid)
@@ -176,13 +176,13 @@ class WelcomePage extends React.Component {
   //       snapshot.forEach (project => {
   //         const data = project.data
   //         myProjects.push(data)
-          
+
   //       })
   //         this.setState({myProjects:myProjects})
   //     })
   //     .catch( error => console.log(error))
   // }
-  
+
   // static getDerivedStateFromProps(props, state)  {
   //   if (props.user && props.user.uid) {
   //     this.getProjectsFromFirebase(props.user.uid)
@@ -196,8 +196,9 @@ class WelcomePage extends React.Component {
   //     this.getProjectsFromFirebase(this.props.user.uid)
   //   }
   // }
-  
+
   render(){
+    console.log("uziel testing")
     const { props } = this
     if (!props.user) return <Redirect to="/" />
 
@@ -235,7 +236,7 @@ class WelcomePage extends React.Component {
             <p className="input"><br />Description: <input name="description" onChange={this.handleChange} value={this.state.description} type="text"/></p>
             <button onClick={this.saveProjectInFirebase} className="addButton">Add Project</button><br /><br />
             </strong>
-        </div>      
+        </div>
     )
   }
 }
@@ -263,19 +264,19 @@ function FullNavbar(props) {
           }
       </div>
     </Navbar>
-  )  
+  )
 }
 
 function Home(props) {
   if (props.user) return <Redirect to="/welcome" />
-  
+
   return (
       <div className="homePage">
         <br /><br />
         <h1 className="homePageTitle">Procrast</h1>
         <h2 className="slogan">Meh. I will finish it later.</h2><br />
-        <p className="description">Although we don't want to admit it, we all procrastinate. Procrastination is something that hunts us all. But 
-        life's too short to procrastinate. 
+        <p className="description">Although we don't want to admit it, we all procrastinate. Procrastination is something that hunts us all. But
+        life's too short to procrastinate.
         Are you afraid that your procrastination monster is dominating your life? Well, don't worry. This is the app for you.</p>
       </div>
     )
