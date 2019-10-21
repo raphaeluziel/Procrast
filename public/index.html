@@ -28,6 +28,27 @@
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyA3sXTqOcesS7WFEOmx3CvtjetlQ_DAA54",
+      authDomain: "procrast-uziel.firebaseapp.com",
+      databaseURL: "https://procrast-uziel.firebaseio.com",
+      projectId: "procrast-uziel",
+      storageBucket: "procrast-uziel.appspot.com",
+      messagingSenderId: "197254791046",
+      appId: "1:197254791046:web:7f8581eb15a237ab617607"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
     <div id="root"></div>
     <!--
       This HTML file is a template.
