@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "e48525963c6b1bd8828245f506c110cb",
+    "revision": "ade6f898dfc548d4e88ce695469eba97",
     "url": "/Procrast/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Procrast/static/css/2.266e55a5.chunk.css"
   },
   {
-    "revision": "ff323b688b5079004163",
+    "revision": "a2ea4f108ac7290cd8ac",
     "url": "/Procrast/static/css/main.15905ee8.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Procrast/static/js/2.bb6f919c.chunk.js"
   },
   {
-    "revision": "ff323b688b5079004163",
-    "url": "/Procrast/static/js/main.b23f05a8.chunk.js"
+    "revision": "a2ea4f108ac7290cd8ac",
+    "url": "/Procrast/static/js/main.a4769f00.chunk.js"
   },
   {
     "revision": "e872f37a3aafd5c3147a",
